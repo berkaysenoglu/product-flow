@@ -3,7 +3,7 @@
         {
             "name" : "Berkay",
             "surname" : "Şenoğlu",
-            "email" : "berkaysenoglu@gmail.com",
+            "email" : "user",
             "password" : "1234",
             "role" : "user"
                 
@@ -11,7 +11,7 @@
         {
             "name" : "Serhat",
             "surname" : "Koçhan",
-            "email" : "serhatkochan@gmail.com",
+            "email" : "admin",
             "password" : "1234",
             "role" : "admin"
         }

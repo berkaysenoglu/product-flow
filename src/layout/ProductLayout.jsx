@@ -1,7 +1,8 @@
 import React from "react";
 import { Layout, theme, Switch } from "antd";
-
-const { Header, Content, Footer } = Layout;
+import { Header } from "../components/Header";
+import Footer from "../components/Footer";
+const { Content } = Layout;
 const items = new Array(3).fill(null).map((_, index) => ({
   key: String(index + 1),
   label: `nav ${index + 1}`,
@@ -12,23 +13,7 @@ const ProductLayout = () => {
   } = theme.useToken();
   return (
     <Layout>
-      <Header
-        style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 1,
-          width: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "0 0px",
-        }}
-      >
-        <div className="header-img">
-          <img src="./productflow.png" alt="Logo"></img>
-        </div>
-        <Switch style={{ marginLeft: "875px" }}></Switch>
-      </Header>
+      <Header />
       <Content
         style={{
           padding: "0 48px",
@@ -45,13 +30,7 @@ const ProductLayout = () => {
           Content
         </div>
       </Content>
-      <Footer
-        style={{
-          textAlign: "center",
-        }}
-      >
-        Mahrek Tech. ©{new Date().getFullYear()} Created by BŞ
-      </Footer>
+      <Footer />
     </Layout>
   );
 };

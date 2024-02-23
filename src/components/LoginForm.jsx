@@ -1,14 +1,23 @@
 import { React, useState } from "react";
 import { Button, Checkbox, Form, Input } from "antd";
-
-const onFinish = (values) => {
-  console.log("Success:", values);
-};
-const onFinishFailed = (errorInfo) => {
-  console.log("Failed:", errorInfo);
-};
+import usersData from "../users.json";
+import { t } from "i18next";
+import { useNavigate } from "react-router-dom";
+import { useLoggedInContext } from "../contexts/LoggedInContext";
 
 const LoginForm = () => {
+  const navigate = useNavigate();
+  const { onFinish } = useLoggedInContext();
+  console.log(onFinish);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleEmailChange = (event) => {
+    console.log(event.target.value);
+  };
+
+  // spread, destruct, context
+
   return (
     <div className="login-form">
       <Form
@@ -26,24 +35,25 @@ const LoginForm = () => {
           remember: true,
         }}
         onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
         <Form.Item
-          label="Username"
-          name="username"
+          name="email"
           rules={[
             {
               required: true,
-              message: "Please input your username!",
+              message: "Please input your email!",
             },
           ]}
         >
-          <Input />
+          <Input
+            style={{ width: "15rem", height: "2.5rem" }}
+            placeholder="Email"
+            onChange={handleEmailChange}
+          />
         </Form.Item>
 
         <Form.Item
-          label="Password"
           name="password"
           rules={[
             {
@@ -52,26 +62,24 @@ const LoginForm = () => {
             },
           ]}
         >
-          <Input.Password />
+          <Input.Password
+            style={{ width: "15rem", height: "2.5rem" }}
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </Form.Item>
-
-        <Form.Item
-          name="remember"
-          valuePropName="checked"
-          wrapperCol={{
-            offset: 8,
-            span: 16,
-          }}
-        ></Form.Item>
-
         <Form.Item
           wrapperCol={{
             offset: 8,
             span: 16,
           }}
         >
-          <Button type="primary" htmlType="submit">
-            Submit
+          <Button
+            style={{ height: "2.2rem", width: "7rem", marginLeft: "3rem" }}
+            type="primary"
+            htmlType="submit"
+          >
+            Log in
           </Button>
         </Form.Item>
       </Form>
