@@ -1,12 +1,10 @@
 import React from "react";
-import { Layout, theme, Switch } from "antd";
+import { Layout, theme } from "antd";
 import { Header } from "../components/Header";
 import Footer from "../components/Footer";
+import ProductCard from "../components/ProductCard";
 const { Content } = Layout;
-const items = new Array(3).fill(null).map((_, index) => ({
-  key: String(index + 1),
-  label: `nav ${index + 1}`,
-}));
+
 const ProductLayout = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -21,13 +19,14 @@ const ProductLayout = () => {
       >
         <div
           style={{
-            padding: 24,
-            minHeight: 380,
+            padding: 50,
+            minHeight: 250,
+
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
           }}
         >
-          Content
+          <ProductCard></ProductCard>
         </div>
       </Content>
       <Footer />

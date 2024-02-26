@@ -2,63 +2,63 @@
     "products": [
       {
         "id": 1,
-        "img": "https://ae01.alicdn.com/kf/U2329c163cfc646dba43942c22938bb4en.jpg_640x640Q90.jpg_.webp",
+        "img": "https://cdn.cimri.io/image/1200x1200/baseusversgrltengelleyicibluetoothkulaklkuzunarjlinkabloluvekablosuzkulaklk_821764279.jpg",
         "name": "Harmony Stereo Kulaklık",
-        "price": 49.99
+        "price": "49.99 $"
       },
       {
         "id": 2,
         "img": "https://www.mobilyanoktasi.com/image/cache/catalog/elite/elite-ofis-koltugu-mobilyanoktasi-1000x1000.jpg",
         "name": "Elite Ergonomik Ofis Sandalyesi",
-        "price": 129.99
+        "price": "129.99 $"
       },
       {
         "id": 3,
         "img": "https://m.media-amazon.com/images/I/81mSd7d0kPL.jpg",
         "name": "Quantum Gaming Mouse",
-        "price": 39.99
+        "price": "39.99 $"
       },
       {
         "id": 4,
         "img": "https://m.media-amazon.com/images/I/61E8XUwNfwL.jpg",
         "name": "Stellar Bluetooth Hoparlör",
-        "price": 79.99
+        "price": "79.99 $"
       },
       {
         "id": 5,
         "img": "https://www.rodo.com.ar/media/catalog/product/cache/855090a5c67e45b26c9e0d345e7592dc/3/2/328359_1.jpg",
         "name": "Zenith 4K Ultra HD Televizyon",
-        "price": 699.99
+        "price": "699.99 $"
       },
       {
         "id": 6,
-        "img": "https://cdn.dsmcdn.com/ty515/product/media/images/20220824/13/165000205/551413298/1/1_org_zoom.jpg",
+        "img": "https://m.media-amazon.com/images/I/61zuB8QQM4L._AC_SX569_.jpg",
         "name": "Nova Akıllı Telefon Kılıfı",
-        "price": 19.99
+        "price": "19.99 $"
       },
       {
         "id": 7,
         "img": "https://productimages.hepsiburada.net/s/165/375-375/110000126789219.jpg",
         "name": "Pulse Fitness Akıllı Bileklik",
-        "price": 59.99
+        "price": "59.99 $"
       },
       {
         "id": 8,
         "img": "https://m.media-amazon.com/images/I/81OL-cArHfL._AC_UF1000,1000_QL80_.jpg",
         "name": "Solaris Dizüstü Bilgisayar Çantası",
-        "price": 29.99
+        "price": "29.99 $"
       },
       {
         "id": 9,
         "img": "https://www.desibela.com/productimages/138730/big/36.jpg",
         "name": "Fusion Kablosuz Şarj Cihazı",
-        "price": 34.99
+        "price": "34.99 $"
       },
       {
         "id": 10,
         "img": "https://img4.dhresource.com/webp/m/0x0/f3/albu/km/y/06/75e47ca6-68e9-408f-a773-e24562bc021c.jpg",
         "name": "Aero Hafif Spor Ayakkabı",
-        "price": 59.99
+        "price": "59.99 $"
       }
     ]
   }

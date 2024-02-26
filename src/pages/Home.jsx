@@ -2,21 +2,17 @@ import React, { useEffect } from "react";
 import ProductLayout from "../layout/ProductLayout";
 import { useLoggedInContext } from "../contexts/LoggedInContext";
 import { useNavigate } from "react-router-dom";
+
 const Home = () => {
+  const navigate = useNavigate();
   const { loggedIn } = useLoggedInContext();
 
-  const navigate = useNavigate();
-  console.log(loggedIn);
   useEffect(() => {
-    if (!loggedIn) {
+    if (loggedIn !== true) {
       navigate("/login");
     }
-  }, [loggedIn]);
-
-  if (loggedIn) {
-    {
-      return <ProductLayout />;
-    }
-  }
+  }, []);
+  console.log(loggedIn);
+  return <ProductLayout />;
 };
 export default Home;

@@ -2,7 +2,17 @@ import React from "react";
 import LoginForm from "../components/LoginForm";
 import { Header } from "../components/Header";
 import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom";
+import { useLoggedInContext } from "../contexts/LoggedInContext";
+import { useEffect } from "react";
 const Login = () => {
+  const navigate = useNavigate();
+  const { loggedIn } = useLoggedInContext();
+  useEffect(() => {
+    if (loggedIn == true) {
+      navigate("/");
+    }
+  }, [loggedIn, navigate]);
   return (
     <>
       <div className="login-page-wrapper">
@@ -15,6 +25,7 @@ const Login = () => {
           <LoginForm />
         </div>
       </div>
+
       <Footer />
     </>
   );

@@ -73,3 +73,14 @@ div{
     flex-direction: column;
     
   }
+
+ ul{
+  list-style-type:none;
+ }
+
+ .product-list {
+  ul{
+    display: flex;
+  flex-wrap:wrap;
+  }
+ }

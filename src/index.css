@@ -53,4 +53,13 @@ div .login-form {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.product-list ul {
+  display: flex;
+  flex-wrap: wrap;
 }/*# sourceMappingURL=index.css.map */
