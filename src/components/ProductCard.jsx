@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import productsData from "../products.json";
 import { EditOutlined } from "@ant-design/icons";
 import { Card, Row, Col } from "antd";
 import { useLoggedInContext } from "../contexts/LoggedInContext";
 const { Meta } = Card;
-const ProductCard = () => {
+const ProductCard = ({ filteredProducts }) => {
+  useEffect(() => {});
   const { isAdmin } = useLoggedInContext();
   return (
     <Row gutter={[45, 45]}>
-      {productsData.products.map((product) => (
+      {filteredProducts.map((product) => (
         <Col key={product.id} xs={24} sm={12} md={8} lg={6} xl={6}>
           <Card
             style={{
