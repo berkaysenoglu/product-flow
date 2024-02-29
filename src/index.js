@@ -9,11 +9,6 @@ import Home from "./pages/Home";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <LoggedInProvider>
-      <Routes>
-        <Route path="/login" element={<App />} />
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </LoggedInProvider>
+    <App />
   </BrowserRouter>
 );
