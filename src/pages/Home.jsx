@@ -13,8 +13,8 @@ const Home = () => {
     if (loggedIn !== true) {
       navigate("/login");
     }
-  }, []);
-  console.log("isLoggedIn:", loggedIn);
+  }, [loggedIn]);
+
   return <ProductLayout />;
 };
 export default Home;

@@ -17,7 +17,7 @@ const LoggedInProvider = ({ children }) => {
     }
     return sessionStorage.getItem("isAdmin") === "true";
   });
-  console.log("admin bilgisi :", isAdmin);
+
   const onFinish = (values) => {
     let user = usersData.users.find(
       (user) => user.email === values.email && user.password === values.password
@@ -40,9 +40,11 @@ const LoggedInProvider = ({ children }) => {
       sessionStorage.setItem("isAdmin", false);
     }
   };
-  console.log(sessionStorage.getItem("loggedIn"));
+
   return (
-    <LoggedInContext.Provider value={{ loggedIn, onFinish, isAdmin }}>
+    <LoggedInContext.Provider
+      value={{ loggedIn, onFinish, isAdmin, setLoggedIn }}
+    >
       {children}
     </LoggedInContext.Provider>
   );
