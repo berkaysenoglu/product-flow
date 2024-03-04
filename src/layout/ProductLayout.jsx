@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 import { PoweroffOutlined } from "@ant-design/icons";
 import { useLoggedInContext } from "../contexts/LoggedInContext";
 import { TranslationOutlined, DownOutlined } from "@ant-design/icons";
+import { ConfigProvider } from "antd";
 const { Content, Sider } = Layout;
 
 const ProductLayout = () => {
@@ -59,82 +60,84 @@ const ProductLayout = () => {
     sessionStorage.setItem("loggedIn", "false");
   };
   return (
-    <Layout>
-      <Header
-        style={{
-          display: "flex",
-          alignItems: "center",
-        }}
-      ></Header>
+    <ConfigProvider theme={{ algorithm: [theme.defaultAlgorithm] }}>
       <Layout>
-        <Sider
-          width={200}
+        <Header
           style={{
-            background: colorBgContainer,
+            display: "flex",
+            alignItems: "center",
           }}
-        >
-          <Button
-            style={{ margin: "20px", marginTop: "9px", marginBottom: "13px" }}
-            onClick={handleShowAllProducts}
-          >
-            {t("Tüm ürünleri göster")}
-          </Button>
-
-          <Menu
-            mode="inline"
+        ></Header>
+        <Layout>
+          <Sider
+            width={200}
             style={{
-              borderRight: 0,
-            }}
-            items={items}
-            onSelect={({ key }) => handleCategorySelect(key)}
-          />
-
-          <Button
-            type="primary"
-            style={{
-              margin: "60px",
-              marginTop: "165%",
-              width: "60%",
-              marginBottom: "74px",
-            }}
-            danger
-            icon={<PoweroffOutlined />}
-            onClick={handleLogOutFunc}
-          >
-            Log out
-          </Button>
-        </Sider>
-        <Layout
-          style={{
-            padding: "0 24px 24px",
-          }}
-        >
-          <Breadcrumb
-            style={{
-              margin: "16px 0",
-            }}
-          >
-            <Breadcrumb.Item>{t("Anasayfa")}</Breadcrumb.Item>
-            <Breadcrumb.Item>{t("Ürünler")}</Breadcrumb.Item>
-            {selectedCategory && (
-              <Breadcrumb.Item>{selectedCategory}</Breadcrumb.Item>
-            )}
-          </Breadcrumb>
-          <Content
-            style={{
-              padding: 24,
-              margin: 0,
-              minHeight: 280,
               background: colorBgContainer,
-              borderRadius: borderRadiusLG,
             }}
           >
-            <ProductCard filteredProducts={filteredProducts}></ProductCard>
-          </Content>
+            <Button
+              style={{ margin: "20px", marginTop: "9px", marginBottom: "13px" }}
+              onClick={handleShowAllProducts}
+            >
+              {t("Tüm ürünleri göster")}
+            </Button>
+
+            <Menu
+              mode="inline"
+              style={{
+                borderRight: 0,
+              }}
+              items={items}
+              onSelect={({ key }) => handleCategorySelect(key)}
+            />
+
+            <Button
+              type="primary"
+              style={{
+                margin: "60px",
+                marginTop: "165%",
+                width: "60%",
+                marginBottom: "74px",
+              }}
+              danger
+              icon={<PoweroffOutlined />}
+              onClick={handleLogOutFunc}
+            >
+              Log out
+            </Button>
+          </Sider>
+          <Layout
+            style={{
+              padding: "0 24px 24px",
+            }}
+          >
+            <Breadcrumb
+              style={{
+                margin: "16px 0",
+              }}
+            >
+              <Breadcrumb.Item>{t("Anasayfa")}</Breadcrumb.Item>
+              <Breadcrumb.Item>{t("Ürünler")}</Breadcrumb.Item>
+              {selectedCategory && (
+                <Breadcrumb.Item>{selectedCategory}</Breadcrumb.Item>
+              )}
+            </Breadcrumb>
+            <Content
+              style={{
+                padding: 24,
+                margin: 0,
+                minHeight: 280,
+                background: colorBgContainer,
+                borderRadius: borderRadiusLG,
+              }}
+            >
+              <ProductCard filteredProducts={filteredProducts}></ProductCard>
+            </Content>
+          </Layout>
         </Layout>
+        <Footer></Footer>
       </Layout>
-      <Footer></Footer>
-    </Layout>
+    </ConfigProvider>
   );
 };
 export default ProductLayout;

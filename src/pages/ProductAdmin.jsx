@@ -2,9 +2,12 @@ import React from "react";
 import { Header } from "../components/Header";
 import ProductCard from "../components/ProductCard";
 import { useParams } from "react-router-dom";
-import ProductsData from "../products.json";
+import ProductsData from "../products.json"; // veri tabanım
 import { InboxOutlined } from "@ant-design/icons";
 import { Form, Upload, Button, Input, Select, Space } from "antd";
+import { Card } from "antd";
+
+const { Meta } = Card;
 const { Option } = Select;
 
 const ProductAdmin = () => {
@@ -42,7 +45,26 @@ const ProductAdmin = () => {
     <>
       <Header />
       <div className="admin-content-wrapper">
-        <ProductCard filteredProducts={[selectedProduct]}></ProductCard>
+        <div className="product-wrapper">
+          <Card
+            hoverable
+            style={{
+              width: 240,
+            }}
+            cover={<img alt="" src={selectedProduct.img} />}
+          >
+            <Meta title={selectedProduct.name} />
+            <div
+              style={{
+                fontFamily: "sans-serif",
+                fontSize: "18px",
+                paddingTop: "15px",
+              }}
+            >
+              {selectedProduct.price}
+            </div>
+          </Card>
+        </div>
         <div className="form-upload">
           <Form
             {...layout}
@@ -52,8 +74,8 @@ const ProductAdmin = () => {
             style={{ maxWidth: 600 }}
           >
             <Form.Item
-              name="productname"
-              label="Product Name"
+              name="ürünadı"
+              label="Ürün Adı:"
               rules={[{ required: true }]}
             >
               <Input />
@@ -66,8 +88,8 @@ const ProductAdmin = () => {
               <Input />
             </Form.Item>
             <Form.Item
-              name="category"
-              label="Category"
+              name="kategori"
+              label="Kategori"
               rules={[{ required: true }]}
             >
               <Select
@@ -102,10 +124,10 @@ const ProductAdmin = () => {
             <Form.Item {...tailLayout}>
               <Space>
                 <Button type="primary" htmlType="submit">
-                  Submit
+                  Değişiklikleri Kaydet
                 </Button>
                 <Button htmlType="button" onClick={onReset}>
-                  Reset
+                  Sıfırla
                 </Button>
               </Space>
             </Form.Item>

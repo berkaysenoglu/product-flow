@@ -95,12 +95,22 @@ div{
 
  .admin-content-wrapper{
   width: 100%;
-  margin-top: 10%;
+  height:725px;
+  
 display: flex;
-flex-wrap: wrap;
 align-items:center;
-justify-content:center;
+justify-content:space-evenly;
+
 
  }
 
+.product-wrapper{
+  margin-left: 100px;
+ 
+}
 
+.form-upload{
+  margin-right: 200px;
+ 
+  
+}
