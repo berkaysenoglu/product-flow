@@ -1,16 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Header } from "../components/Header";
 import ProductCard from "../components/ProductCard";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import ProductsData from "../products.json"; // veri tabanım
 import { InboxOutlined } from "@ant-design/icons";
 import { Form, Upload, Button, Input, Select, Space } from "antd";
 import { Card } from "antd";
-
+import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { updateProduct } from "../ProductReducer";
+import { useLoggedInContext } from "../contexts/LoggedInContext";
 const { Meta } = Card;
 const { Option } = Select;
 
 const ProductAdmin = () => {
+  const navigate = useNavigate();
+  const { loggedIn, isAdmin } = useLoggedInContext();
+  useEffect(() => {
+    if (loggedIn == false) {
+      navigate("/login");
+    }
+  }, [loggedIn]);
+  useEffect(() => {
+    if (isAdmin == false) {
+      navigate("/");
+    }
+  }, [isAdmin]);
+
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products);
+  const { t, i18n } = useTranslation();
   const layout = {
     labelCol: { span: 8 },
     wrapperCol: { span: 16 },
@@ -20,20 +39,28 @@ const ProductAdmin = () => {
   };
   const [form] = Form.useForm();
 
-  const onFinish = (values) => {
-    console.log(values);
+  const handleUpdate = (values) => {
+    dispatch(
+      updateProduct({
+        id: productId,
+        name: values.name,
+        price: values.price,
+        category: values.category,
+      })
+    );
+    console.log(products);
   };
   const onReset = () => {
     form.resetFields();
   };
   const { productId } = useParams();
 
-  const products = ProductsData.products;
-
   const selectedProduct = products.find(
     (product) => product.id === parseInt(productId)
   );
-  console.log(selectedProduct);
+
+  const { name, price, category, img } = selectedProduct;
+
   const normFile = (e) => {
     console.log("Upload event:", e);
     if (Array.isArray(e)) {
@@ -41,6 +68,7 @@ const ProductAdmin = () => {
     }
     return e?.fileList;
   };
+
   return (
     <>
       <Header />
@@ -51,9 +79,9 @@ const ProductAdmin = () => {
             style={{
               width: 240,
             }}
-            cover={<img alt="" src={selectedProduct.img} />}
+            cover={<img alt="" src={img} />}
           >
-            <Meta title={selectedProduct.name} />
+            <Meta title={name} />
             <div
               style={{
                 fontFamily: "sans-serif",
@@ -61,7 +89,7 @@ const ProductAdmin = () => {
                 paddingTop: "15px",
               }}
             >
-              {selectedProduct.price}
+              {price}
             </div>
           </Card>
         </div>
@@ -70,69 +98,53 @@ const ProductAdmin = () => {
             {...layout}
             form={form}
             name="control-hooks"
-            onFinish={onFinish}
+            onFinish={handleUpdate}
             style={{ maxWidth: 600 }}
           >
             <Form.Item
-              name="ürünadı"
-              label="Ürün Adı:"
+              name="name"
+              label={t("Ürün Adı:")}
               rules={[{ required: true }]}
             >
               <Input />
             </Form.Item>
             <Form.Item
-              name="fiyat"
-              label="Ürün fiyatı"
+              name="price"
+              label={t("Ürün Fiyatı:")}
               rules={[{ required: true }]}
             >
               <Input />
             </Form.Item>
             <Form.Item
-              name="kategori"
-              label="Kategori"
+              name="category"
+              label={t("Kategori")}
               rules={[{ required: true }]}
             >
               <Select
-                placeholder="Select a option and change input text above"
+                placeholder={t(
+                  "Seçeneklerden birisini seç ve kategori girdisini değiştir"
+                )}
                 allowClear
               >
-                <Option value="Elektronik">Elektronik</Option>
-                <Option value="Giyim">Giyim</Option>
-                <Option value="Mobilya">Mobilya</Option>
-                <Option value="Aksesuar">Aksesuar</Option>
-                <Option value="other">Other</Option>
+                <Option value="Elektronik">{t("Elektronik")}</Option>
+                <Option value="Giyim">{t("Giyim")}</Option>
+                <Option value="Mobilya">{t("Mobilya")}</Option>
+                <Option value="Aksesuar">{t("Aksesuar")}</Option>
               </Select>
             </Form.Item>
-            <Form.Item
-              noStyle
-              shouldUpdate={(prevValues, currentValues) =>
-                prevValues.category !== currentValues.category
-              }
-            >
-              {({ getFieldValue }) =>
-                getFieldValue("category") === "other" ? (
-                  <Form.Item
-                    name="categoryEkle"
-                    label="Yeni Kategori"
-                    rules={[{ required: true }]}
-                  >
-                    <Input />
-                  </Form.Item>
-                ) : null
-              }
-            </Form.Item>
+
             <Form.Item {...tailLayout}>
               <Space>
                 <Button type="primary" htmlType="submit">
-                  Değişiklikleri Kaydet
+                  {t("Değişiklikleri Kaydet")}
                 </Button>
                 <Button htmlType="button" onClick={onReset}>
-                  Sıfırla
+                  {t("Sıfırla")}
                 </Button>
               </Space>
             </Form.Item>
           </Form>
-          <Form.Item label="Fotoğrafı değiştir">
+          <Form.Item style={{ marginLeft: "60px" }}>
             <Form.Item
               name="dragger"
               valuePropName="fileList"
@@ -144,10 +156,10 @@ const ProductAdmin = () => {
                   <InboxOutlined />
                 </p>
                 <p className="ant-upload-text">
-                  Yeni fotoğrafı yüklemek için tıkla veya sürükle
+                  {t("Yeni fotoğrafı yüklemek için tıkla veya sürükle")}
                 </p>
                 <p className="ant-upload-hint">
-                  Tekli veya çoklu olarak yükleyebilirsin
+                  {t("Tekli veya çoklu olarak yükleyebilirsin")}
                 </p>
               </Upload.Dragger>
             </Form.Item>

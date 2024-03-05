@@ -23,31 +23,33 @@ export const Header = () => {
           alignItems: "center",
           height: "100px",
           justifyContent: "space-between",
-          padding: "0 0px",
+          padding: "0 20px",
         }}
       >
         <div className="header-img">
           <img src="./productflow.png" alt="Logo"></img>
         </div>
-        <Button
-          style={{
-            backgroundColor: "gray",
-            width: "70px",
-            height: "40px",
-            marginLeft: "1280px",
-          }}
-          onClick={() => {
-            if (i18n.language === "en") {
-              i18n.changeLanguage("tr");
-            } else {
-              i18n.changeLanguage("en");
-            }
-          }}
-          icon={<TranslationOutlined style={{ fontSize: "30px" }} />}
-        >
-          {i18n.language}
-        </Button>
-        <Switch></Switch>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <Button
+            style={{
+              backgroundColor: "gray",
+              width: "70px",
+              height: "40px",
+              marginRight: "10px",
+            }}
+            onClick={() => {
+              if (i18n.language === "en") {
+                i18n.changeLanguage("tr");
+              } else {
+                i18n.changeLanguage("en");
+              }
+            }}
+            icon={<TranslationOutlined style={{ fontSize: "30px" }} />}
+          >
+            {i18n.language}
+          </Button>
+          <Switch></Switch>
+        </div>
       </Layout.Header>
     </ConfigProvider>
   );

@@ -6,7 +6,19 @@
     "Mobilya":"Furniture",
     "Aksesuar":"Accessory",
     "Anasayfa":"Home",
-    "Ürünler" : "Products"
+    "Ürünler" : "Products",
+    "Çıkış yap": "Log out",
+    "Ürün Adı:": "Product Name:",
+    "Ürün Fiyatı:": "Product Price:",
+    "Kategori" : "Category",
+    "Seçeneklerden birisini seç ve kategori girdisini değiştir" : "Select an option and change input text below",
+    "Değişiklikleri Kaydet" : "Save Changes",
+    "Sıfırla":"Reset",
+    "Yeni fotoğrafı yüklemek için tıkla veya sürükle":"Click or drag to upload new photo",
+    "Tekli veya çoklu olarak yükleyebilirsin" : "You can upload single or multiple"
+    
+
+
     
 
 }

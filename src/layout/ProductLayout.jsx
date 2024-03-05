@@ -81,30 +81,37 @@ const ProductLayout = () => {
             >
               {t("Tüm ürünleri göster")}
             </Button>
-
-            <Menu
-              mode="inline"
+            <div
               style={{
-                borderRight: 0,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "space-between",
               }}
-              items={items}
-              onSelect={({ key }) => handleCategorySelect(key)}
-            />
-
-            <Button
-              type="primary"
-              style={{
-                margin: "60px",
-                marginTop: "165%",
-                width: "60%",
-                marginBottom: "74px",
-              }}
-              danger
-              icon={<PoweroffOutlined />}
-              onClick={handleLogOutFunc}
             >
-              Log out
-            </Button>
+              <Menu
+                mode="inline"
+                style={{
+                  borderRight: 0,
+                }}
+                items={items}
+                onSelect={({ key }) => handleCategorySelect(key)}
+              />
+
+              <Button
+                type="primary"
+                style={{
+                  marginTop: "75rem",
+                  width: "60%",
+                  position: "absolute",
+                }}
+                danger
+                icon={<PoweroffOutlined />}
+                onClick={handleLogOutFunc}
+              >
+                {t("Çıkış yap")}
+              </Button>
+            </div>
           </Sider>
           <Layout
             style={{
