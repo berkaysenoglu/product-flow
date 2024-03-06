@@ -25,7 +25,7 @@ const Login = () => {
           <LoginForm />
         </div>
       </div>
-      <Footer />
+      <Footer className="main-footer" />
     </>
   );
 };

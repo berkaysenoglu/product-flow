@@ -13,16 +13,21 @@ import { ConfigProvider } from "antd";
 const { Content, Sider } = Layout;
 
 const ProductLayout = () => {
-  const { loggedIn, setLoggedIn } = useLoggedInContext();
-  const { t, i18n } = useTranslation();
+  const { setLoggedIn } = useLoggedInContext();
+  const { t } = useTranslation();
 
-  const categories = [t("Elektronik"), t("Giyim"), t("Mobilya"), t("Aksesuar")];
+  const categories = [
+    t("electronic"),
+    t("clothes"),
+    t("furniture"),
+    t("accessory"),
+  ];
   const items = [
     {
       key: "categories",
-      label: t("Kategoriler"),
-      children: categories.map((category, index) => ({
-        key: `${index}`,
+      label: t("categories"),
+      children: categories.map((category) => ({
+        key: `${category}`,
         label: category,
       })),
     },
@@ -30,7 +35,7 @@ const ProductLayout = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const handleCategorySelect = (key) => {
-    setSelectedCategory(categories[key]);
+    setSelectedCategory(key);
   };
   const handleShowAllProducts = () => {
     setSelectedCategory(null);
@@ -38,7 +43,7 @@ const ProductLayout = () => {
   useEffect(() => {
     if (selectedCategory) {
       const newFilteredProducts = productsData.products.filter(
-        (product) => product.category[i18n.language] === selectedCategory
+        (product) => product.category === selectedCategory
       );
       setFilteredProducts(newFilteredProducts);
     } else {
@@ -48,7 +53,7 @@ const ProductLayout = () => {
 
   // const filteredProducts = selectedCategory
   //   ? productsData.products.filter(
-  //       (product) => product.category[i18n.language] == selectedCategory
+  //       (product) => product.category == selectedCategory
   //     )
   //   : productsData.products;
 
@@ -76,10 +81,10 @@ const ProductLayout = () => {
             }}
           >
             <Button
-              style={{ margin: "20px", marginTop: "9px", marginBottom: "13px" }}
+              className="show-allitem-button"
               onClick={handleShowAllProducts}
             >
-              {t("Tüm ürünleri göster")}
+              {t("show-all")}
             </Button>
             <div
               style={{

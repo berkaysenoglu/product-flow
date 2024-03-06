@@ -1,5 +1,9 @@
 {
-    
-    "Kategori:" : "Kategori:"
+    "show-all" :"Tüm ürünleri göster",
+    "categories" : "Kategoriler",
+    "electronic" : "Elektronik",
+    "clothes" : "Giyim",
+    "furniture" : "Mobilya",
+    "accessory" : "Aksesuar"
 
 }
