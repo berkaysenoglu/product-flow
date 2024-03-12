@@ -1,7 +1,6 @@
-import { React, useState } from "react";
-import { Button, Checkbox, Form, Input } from "antd";
+import { React } from "react";
+import { Button, Form, Input } from "antd";
 
-import { t } from "i18next";
 import { useLoggedInContext } from "../contexts/LoggedInContext";
 
 const LoginForm = () => {
@@ -35,10 +34,7 @@ const LoginForm = () => {
             },
           ]}
         >
-          <Input
-            style={{ width: "15rem", height: "2.5rem" }}
-            placeholder="Email"
-          />
+          <Input className="email-input" placeholder="Email" />
         </Form.Item>
 
         <Form.Item
@@ -50,10 +46,7 @@ const LoginForm = () => {
             },
           ]}
         >
-          <Input.Password
-            style={{ width: "15rem", height: "2.5rem" }}
-            placeholder="Password"
-          />
+          <Input.Password className="password-input" placeholder="Password" />
         </Form.Item>
         <Form.Item
           wrapperCol={{
@@ -61,11 +54,7 @@ const LoginForm = () => {
             span: 16,
           }}
         >
-          <Button
-            style={{ height: "2.2rem", width: "7rem", marginLeft: "3rem" }}
-            type="primary"
-            htmlType="submit"
-          >
+          <Button className="login-button" type="primary" htmlType="submit">
             Log in
           </Button>
         </Form.Item>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Header } from "../components/Header";
-import ProductCard from "../components/ProductCard";
 import { useParams, useNavigate } from "react-router-dom";
 import ProductsData from "../products.json"; // veri tabanım
 import { InboxOutlined } from "@ant-design/icons";
@@ -48,7 +47,6 @@ const ProductAdmin = () => {
         category: values.category,
       })
     );
-    console.log(products);
   };
   const onReset = () => {
     form.resetFields();
@@ -59,7 +57,7 @@ const ProductAdmin = () => {
     (product) => product.id === parseInt(productId)
   );
 
-  const { name, price, category, img } = selectedProduct;
+  const { name, price, img } = selectedProduct;
 
   const normFile = (e) => {
     console.log("Upload event:", e);
@@ -89,7 +87,7 @@ const ProductAdmin = () => {
                 paddingTop: "15px",
               }}
             >
-              {price}
+              {price} $
             </div>
           </Card>
         </div>
@@ -103,43 +101,38 @@ const ProductAdmin = () => {
           >
             <Form.Item
               name="name"
-              label={t("Ürün Adı:")}
+              label={t("product-name")}
               rules={[{ required: true }]}
             >
               <Input />
             </Form.Item>
             <Form.Item
               name="price"
-              label={t("Ürün Fiyatı:")}
+              label={t("product-price")}
               rules={[{ required: true }]}
             >
               <Input />
             </Form.Item>
             <Form.Item
               name="category"
-              label={t("Kategori")}
+              label={t("category")}
               rules={[{ required: true }]}
             >
-              <Select
-                placeholder={t(
-                  "Seçeneklerden birisini seç ve kategori girdisini değiştir"
-                )}
-                allowClear
-              >
-                <Option value="Elektronik">{t("Elektronik")}</Option>
-                <Option value="Giyim">{t("Giyim")}</Option>
-                <Option value="Mobilya">{t("Mobilya")}</Option>
-                <Option value="Aksesuar">{t("Aksesuar")}</Option>
+              <Select placeholder={t(t("select-category"))} allowClear>
+                <Option value="Electronic">{t("Electronic")}</Option>
+                <Option value="Clothes">{t("Clothes")}</Option>
+                <Option value="Furniture">{t("Furniture")}</Option>
+                <Option value="Accessory">{t("Accessory")}</Option>
               </Select>
             </Form.Item>
 
             <Form.Item {...tailLayout}>
               <Space>
                 <Button type="primary" htmlType="submit">
-                  {t("Değişiklikleri Kaydet")}
+                  {t("save-changes")}
                 </Button>
                 <Button htmlType="button" onClick={onReset}>
-                  {t("Sıfırla")}
+                  {t("reset")}
                 </Button>
               </Space>
             </Form.Item>

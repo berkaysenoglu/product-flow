@@ -1,22 +1,26 @@
 {
     "show-all" : "Show all products",
     "categories" : "Categories",
-    "electronic" : "Electronic",
-    "clothes":"Clothes",
-    "furniture":"Furniture",
-    "accessory":"Accessory",
+    "Electronic" : "Electronic",
+    "Clothes":"Clothes",
+    "Furniture":"Furniture",
+    "Accessory":"Accessory",
     "Anasayfa":"Home",
     "Ürünler" : "Products",
     "Çıkış yap": "Log out",
-    "Ürün Adı:": "Product Name:",
-    "Ürün Fiyatı:": "Product Price:",
+    "product-name": "Product Name",
+    "product-price": "Product Price",
+    "product-description" : "Product Description",
     "Kategori" : "Category",
-    "Seçeneklerden birisini seç ve kategori girdisini değiştir" : "Select an option and change input text below",
-    "Değişiklikleri Kaydet" : "Save Changes",
+    "select-category" : "Select an option and change input text below",
+    "save-changes" : "Save Changes",
     "Sıfırla":"Reset",
     "Yeni fotoğrafı yüklemek için tıkla veya sürükle":"Click or drag to upload new photo",
-    "Tekli veya çoklu olarak yükleyebilirsin" : "You can upload single or multiple"
-    
+    "Tekli veya çoklu olarak yükleyebilirsin" : "You can upload single or multiple",
+    "category" : "Category",
+    "reset" : "Reset",
+    "edit" : "Edit",
+    "exit-edit":"End Editing"
 
 
     

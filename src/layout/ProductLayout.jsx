@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Button, Flex, Dropdown, Space } from "antd";
+import { Button } from "antd";
 import { Breadcrumb, Layout, Menu, theme } from "antd";
 import ProductCard from "../components/ProductCard";
 import { Header } from "../components/Header";
-import productsData from "../products.json";
+import productsData from "../products.json"; //veritabanım
 import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
-import { PoweroffOutlined } from "@ant-design/icons";
+import { PoweroffOutlined, UnorderedListOutlined } from "@ant-design/icons";
 import { useLoggedInContext } from "../contexts/LoggedInContext";
-import { TranslationOutlined, DownOutlined } from "@ant-design/icons";
 import { ConfigProvider } from "antd";
+import { useSelector } from "react-redux";
+import { FaLaptop, FaTshirt, FaChair, FaNecklace } from "react-icons/fa";
+import { MdOutlineWatch } from "react-icons/md";
+
 const { Content, Sider } = Layout;
 
 const ProductLayout = () => {
@@ -17,37 +20,41 @@ const ProductLayout = () => {
   const { t } = useTranslation();
 
   const categories = [
-    t("electronic"),
-    t("clothes"),
-    t("furniture"),
-    t("accessory"),
+    { key: "Electronic", icon: <FaLaptop /> },
+    { key: "Clothes", icon: <FaTshirt /> },
+    { key: "Furniture", icon: <FaChair /> },
+    { key: "Accessory", icon: <MdOutlineWatch /> },
   ];
   const items = [
     {
       key: "categories",
       label: t("categories"),
       children: categories.map((category) => ({
-        key: `${category}`,
-        label: category,
+        key: category.key,
+        label: t(category.key),
+        icon: category.icon,
       })),
+      icon: <UnorderedListOutlined />,
     },
   ];
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const handleCategorySelect = (key) => {
-    setSelectedCategory(key);
+  console.log(selectedCategory);
+  const handleCategorySelect = (item) => {
+    setSelectedCategory(item.key);
   };
   const handleShowAllProducts = () => {
     setSelectedCategory(null);
   };
+  const products = useSelector((state) => state.products);
   useEffect(() => {
     if (selectedCategory) {
-      const newFilteredProducts = productsData.products.filter(
+      const newFilteredProducts = products.filter(
         (product) => product.category === selectedCategory
       );
       setFilteredProducts(newFilteredProducts);
     } else {
-      setFilteredProducts(productsData.products);
+      setFilteredProducts(products);
     }
   }, [selectedCategory]);
 
@@ -67,12 +74,7 @@ const ProductLayout = () => {
   return (
     <ConfigProvider theme={{ algorithm: [theme.defaultAlgorithm] }}>
       <Layout>
-        <Header
-          style={{
-            display: "flex",
-            alignItems: "center",
-          }}
-        ></Header>
+        <Header></Header>
         <Layout>
           <Sider
             width={200}
@@ -86,21 +88,19 @@ const ProductLayout = () => {
             >
               {t("show-all")}
             </Button>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "space-between",
-              }}
-            >
+            <div className="menu-wrapper">
               <Menu
+                icon={<UnorderedListOutlined />}
                 mode="inline"
                 style={{
                   borderRight: 0,
                 }}
                 items={items}
-                onSelect={({ key }) => handleCategorySelect(key)}
+                onSelect={({ key }) =>
+                  handleCategorySelect(
+                    categories.find((item) => item.key === key)
+                  )
+                }
               />
 
               <Button
@@ -118,20 +118,12 @@ const ProductLayout = () => {
               </Button>
             </div>
           </Sider>
-          <Layout
-            style={{
-              padding: "0 24px 24px",
-            }}
-          >
-            <Breadcrumb
-              style={{
-                margin: "16px 0",
-              }}
-            >
+          <Layout className="main-layout">
+            <Breadcrumb className="main-breadcrumb">
               <Breadcrumb.Item>{t("Anasayfa")}</Breadcrumb.Item>
               <Breadcrumb.Item>{t("Ürünler")}</Breadcrumb.Item>
               {selectedCategory && (
-                <Breadcrumb.Item>{selectedCategory}</Breadcrumb.Item>
+                <Breadcrumb.Item>{t(selectedCategory)}</Breadcrumb.Item>
               )}
             </Breadcrumb>
             <Content

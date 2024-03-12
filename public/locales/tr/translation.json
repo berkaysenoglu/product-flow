@@ -1,9 +1,17 @@
 {
     "show-all" :"Tüm ürünleri göster",
     "categories" : "Kategoriler",
-    "electronic" : "Elektronik",
-    "clothes" : "Giyim",
-    "furniture" : "Mobilya",
-    "accessory" : "Aksesuar"
-
+    "Electronic" : "Elektronik",
+    "Clothes" : "Giyim",
+    "Furniture" : "Mobilya",
+    "Accessory" : "Aksesuar",
+    "select-category" : "Seçeneklerden birisini seç ve kategoriyi belirle",
+    "product-price" : "Ürün Fiyatı:",
+    "product-name": "Ürün Adı:",
+    "category" : "Kategori",
+    "save-changes" : "Değişiklikleri Kaydet",
+    "reset" : "Sıfırla",
+    "edit" : "Düzenle",
+    "exit-edit" : "Düzenlemeyi Bitir",
+    "product-description" : "Product Description"
 }

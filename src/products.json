@@ -1,85 +1,84 @@
 {
-    "products": [
-      {
-        "id": 1,
-        "name": "Harmony Stereo Kulaklık",
-        "price": "49.99 $",
-        "category": "Electronic",
-        "img": "https://cdn.cimri.io/image/1200x1200/baseusversgrltengelleyicibluetoothkulaklkuzunarjlinkabloluvekablosuzkulaklk_821764279.jpg"
-      },
-      {
-        "id": 2,
-        
-        "name": "Elite Ergonomik Ofis Sandalyesi",
-        "price": "129.99 $",
-        "category":"Furniture",
-        "img": "https://www.mobilyanoktasi.com/image/cache/catalog/elite/elite-ofis-koltugu-mobilyanoktasi-1000x1000.jpg"
-      },
-      {
-        "id": 3,
-        
-        "name": "Quantum Gaming Mouse",
-        "price": "39.99 $",
-        "category":"Electronic",
-        "img": "https://m.media-amazon.com/images/I/81mSd7d0kPL.jpg"
-      },
-      {
-        "id": 4,
-        
-        "name": "Stellar Bluetooth Hoparlör",
-        "price": "79.99 $",
-        "category":"Electronic",
-        "img": "https://m.media-amazon.com/images/I/61E8XUwNfwL.jpg"
-      },
-      {
-        "id": 5,
-       
-        "name": "Zenith 4K Ultra HD Televizyon",
-        "price": "699.99 $",
-        "category":"Electronic",
-        "img": "https://www.rodo.com.ar/media/catalog/product/cache/855090a5c67e45b26c9e0d345e7592dc/3/2/328359_1.jpg"
-      },
-      {
-        "id": 6,
-        
-        "name": "Nova Akıllı Telefon Kılıfı",
-        "price": "19.99 $",
-        "category":"Accessory",
-        "img": "https://m.media-amazon.com/images/I/61zuB8QQM4L._AC_SX569_.jpg"
-      },
-      {
-        "id": 7,
-        "name": "Pulse Fitness Akıllı Bileklik",
-        "price": "59.99 $",
-        "category":"Electronic",
-        "img": "https://productimages.hepsiburada.net/s/165/375-375/110000126789219.jpg"
-
-      },
-      {
-        "id": 8,
-        
-        "name": "Solaris Dizüstü Bilgisayar Çantası",
-        "price": "29.99 $",
-        "category":"Accessory",
-        "img": "https://m.media-amazon.com/images/I/81OL-cArHfL._AC_UF1000,1000_QL80_.jpg"
-      },
-      {
-        "id": 9,
-        
-        "name": "Fusion Kablosuz Şarj Cihazı",
-        "price": "34.99 $",
-        "category":"Electronic",
-        "img": "https://www.desibela.com/productimages/138730/big/36.jpg"
-      },
-      {
-        "id": 10,
-        "name": "Aero Hafif Spor Ayakkabı",
-        "price": "59.99 $",
-        "category":"Clothes",
-        "img": "https://img4.dhresource.com/webp/m/0x0/f3/albu/km/y/06/75e47ca6-68e9-408f-a773-e24562bc021c.jpg"
-
-      }
-    ]
-  }
-
-  
+  "products": [
+    {
+      "id": 1,
+      "name": "Harmony Stereo Kulaklık",
+      "price": "49.99 ",
+      "category": "Electronic",
+      "description": "Harmony Stereo Kulaklık, yüksek kaliteli ses deneyimi sunar. Ergonomik tasarımı ve rahat kulak pedleri ile uzun süreli kullanıma uygun bir kulaklıktır. Kablo üzerindeki kontrol düğmeleri ile kolayca ses seviyesini ayarlayabilir ve müziklerinizi kontrol edebilirsiniz. Taşınabilir tasarımı sayesinde her yere kolayca götürebilirsiniz.",
+      "img": "https://cdn.cimri.io/image/1200x1200/baseusversgrltengelleyicibluetoothkulaklkuzunarjlinkabloluvekablosuzkulaklk_821764279.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Elite Ergonomik Ofis Sandalyesi",
+      "price": "129.99 ",
+      "category": "Furniture",
+      "description": "Elite Ergonomik Ofis Sandalyesi, uzun saatler boyunca bilgisayar başında çalışanlar için tasarlanmış konforlu bir ofis sandalyesidir. Ayarlanabilir kolları ve bel desteği ile ergonomik bir oturuş sağlar. Yüksek kaliteli malzemelerden üretilmiş dayanıklı bir üründür. Modern tasarımıyla ofisinize şıklık katar.",
+      "img": "https://www.mobilyanoktasi.com/image/cache/catalog/elite/elite-ofis-koltugu-mobilyanoktasi-1000x1000.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Quantum Gaming Mouse",
+      "price": "39.99 ",
+      "category": "Electronic",
+      "description": "Quantum Gaming Mouse, oyunseverler için tasarlanmış hızlı ve hassas bir fare modelidir. DPI ayarları ile istediğiniz hassasiyete kolayca ulaşabilirsiniz. Ergonomik tasarımı sayesinde uzun oyun oturumları boyunca rahat kullanım sunar. RGB aydınlatma özelliği ile oyun deneyiminizi daha keyifli hale getirir.",
+      "img": "https://m.media-amazon.com/images/I/81mSd7d0kPL.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Stellar Bluetooth Hoparlör",
+      "price": "79.99 ",
+      "category": "Electronic",
+      "description": "Stellar Bluetooth Hoparlör, kablosuz bağlantı özelliğiyle müzik keyfinizi her yere taşır. Kristal netliğinde ses kalitesi ve derin basları ile mükemmel bir müzik deneyimi sunar. Su geçirmez tasarımı sayesinde açık hava etkinliklerinde ve seyahatlerde güvenle kullanabilirsiniz.",
+      "img": "https://m.media-amazon.com/images/I/61E8XUwNfwL.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Samsung 4K Ultra HD Televizyon",
+      "price": "699.99 ",
+      "category": "Electronic",
+      "description": "Samsung 4K Ultra HD Televizyon, kusursuz görüntü kalitesi ve canlı renkleriyle ev sineması deneyiminizi mükemmelleştirir. Smart TV özellikleri sayesinde internette gezinebilir, favori uygulamalarınızı kullanabilir ve akıllı cihazlarınızı televizyona bağlayabilirsiniz. Ince ve şık tasarımıyla her odaya uyum sağlar.",
+      "img": "https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/600/600/productimage/110019332/110019332_0_MC/368f1bbf.png"
+    },
+    {
+      "id": 6,
+      "name": "Nova Akıllı Telefon Kılıfı",
+      "price": "19.99 ",
+      "category": "Accessory",
+      "description": "Nova Akıllı Telefon Kılıfı, akıllı telefonlarınızı günlük darbelere ve çizilmelere karşı korur. Yüksek kaliteli malzemeden üretilmiş sağlam yapısıyla uzun ömürlü bir kullanım sağlar. Şık tasarımı ve farklı renk seçenekleri ile tarzınıza uygun bir seçenek sunar.",
+      "img": "https://m.media-amazon.com/images/I/61zuB8QQM4L._AC_SX569_.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Pulse Fitness Akıllı Bileklik",
+      "price": "59.99 ",
+      "category": "Electronic",
+      "description": "Pulse Fitness Akıllı Bileklik, spor ve sağlık takibi yapmak isteyenler için ideal bir seçenektir. Nabız ölçümü, adım sayacı, uyku takibi gibi birçok özelliği bünyesinde barındırır. Su geçirmez tasarımı ile yüzme gibi su sporları yaparken dahi kullanabilirsiniz.",
+      "img": "https://productimages.hepsiburada.net/s/165/375-375/110000126789219.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Solaris Dizüstü Bilgisayar Çantası",
+      "price": "29.99 ",
+      "category": "Accessory",
+      "description": "Solaris Dizüstü Bilgisayar Çantası, dizüstü bilgisayarınızı güvenle taşımanızı sağlayan şık ve dayanıklı bir çantadır. Çeşitli bölmeleri ve cepleri ile eşyalarınızı düzenli bir şekilde taşıyabilirsiniz. Su geçirmez malzemeden üretilmiştir, bu sayede yağmurlu havalarda bile içindekileri korur.",
+      "img": "https://m.media-amazon.com/images/I/81OL-cArHfL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Fusion Kablosuz Şarj Cihazı",
+      "price": "34.99 ",
+      "category": "Electronic",
+      "description": "Fusion Kablosuz Şarj Cihazı, kablosuz şarj teknolojisi ile cihazlarınızı hızlı ve kolay bir şekilde şarj etmenizi sağlar. Şık ve kompakt tasarımı ile her yere taşıyabilirsiniz. Akıllı şarj koruma özelliği ile cihazlarınızı güvenle şarj edebilirsiniz.",
+      "img": "https://www.desibela.com/productimages/138730/big/36.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Aero Hafif Spor Ayakkabı",
+      "price": "59.99 ",
+      "category": "Clothes",
+      "description": "Aero Hafif Spor Ayakkabı, hafif yapısı ve rahat tabanı ile spor yaparken maksimum performans sağlar. Nefes alabilir kumaşı sayesinde ayaklarınızın terlemesini önler. Dayanıklı malzemelerden üretilmiş olan ayakkabı, uzun süreli kullanıma uygundur.",
+      "img": "https://img4.dhresource.com/webp/m/0x0/f3/albu/km/y/06/75e47ca6-68e9-408f-a773-e24562bc021c.jpg"
+    }
+  ]
+}
