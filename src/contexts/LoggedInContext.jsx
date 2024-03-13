@@ -17,7 +17,9 @@ const LoggedInProvider = ({ children }) => {
     }
     return sessionStorage.getItem("isAdmin") === "true";
   });
-
+  const [userName, setUserName] = useState(() => {
+    return sessionStorage.getItem("userName") || "";
+  });
   const onFinish = (values) => {
     let user = usersData.users.find(
       (user) => user.email === values.email && user.password === values.password
@@ -27,6 +29,8 @@ const LoggedInProvider = ({ children }) => {
       sessionStorage.setItem("loggedIn", "true");
       setLoggedIn(true);
       navigate("/");
+      sessionStorage.setItem("userName", user.name + " " + user.surname);
+      setUserName(user.name + " " + user.surname);
     } else {
       sessionStorage.setItem("loggedIn", "false");
       setLoggedIn(false);
@@ -43,7 +47,7 @@ const LoggedInProvider = ({ children }) => {
 
   return (
     <LoggedInContext.Provider
-      value={{ loggedIn, onFinish, isAdmin, setLoggedIn }}
+      value={{ loggedIn, onFinish, isAdmin, setLoggedIn, userName }}
     >
       {children}
     </LoggedInContext.Provider>

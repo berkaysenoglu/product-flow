@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Header } from "../components/Header";
-import ProductCard from "../components/ProductCard";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
@@ -8,7 +7,6 @@ import { useLoggedInContext } from "../contexts/LoggedInContext";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { Button, Input } from "antd";
-import { RiEdit2Fill } from "react-icons/ri";
 import { EditOutlined } from "@ant-design/icons";
 import { updateProduct } from "../ProductReducer";
 export const ProductDetail = () => {

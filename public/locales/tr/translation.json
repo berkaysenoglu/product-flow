@@ -13,5 +13,6 @@
     "reset" : "Sıfırla",
     "edit" : "Düzenle",
     "exit-edit" : "Düzenlemeyi Bitir",
-    "product-description" : "Product Description"
+    "product-description" : "Product Description",
+    "logOut" : "Çıkış yap"
 }

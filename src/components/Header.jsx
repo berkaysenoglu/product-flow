@@ -1,16 +1,47 @@
 import React from "react";
+import userData from "../users.json";
+import { SearchOutlined } from "@ant-design/icons";
+import {
+  Layout,
+  ConfigProvider,
+  Switch,
+  theme,
+  Button,
+  Dropdown,
+  Space,
+  Input,
+} from "antd";
 
-import { Layout, ConfigProvider, Switch, theme, Button } from "antd";
-import { TranslationOutlined } from "@ant-design/icons";
+import { TranslationOutlined, DownOutlined } from "@ant-design/icons";
+import { useLoggedInContext } from "../contexts/LoggedInContext";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { MdLogout } from "react-icons/md";
+import { useSearchText } from "../contexts/SearchTextContext";
 export const Header = () => {
-  const { i18n } = useTranslation();
+  const { setSearchText } = useSearchText();
+  const { userName, setLoggedIn } = useLoggedInContext();
+  const { i18n, t } = useTranslation();
   const navigate = useNavigate();
+  const handleLogOutFunc = () => {
+    setLoggedIn(false);
+    sessionStorage.setItem("loggedIn", "false");
+  };
+  const items = [
+    {
+      key: "1",
+      label: <a onClick={handleLogOutFunc}>{t("logOut")}</a>,
+      icon: <MdLogout />,
+      danger: true,
+    },
+  ];
+  const handleSearchChange = (e) => {
+    setSearchText(e.target.value.toLowerCase());
+  };
   return (
     <ConfigProvider
       theme={{
-        algorithm: [theme.darkAlgorithm, theme.compactAlgorithm],
+        algorithm: [theme.defaultAlgorithm],
       }}
     >
       <Layout.Header className="main-header">
@@ -22,7 +53,28 @@ export const Header = () => {
             alt="Logo"
           ></img>
         </div>
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <Input
+          onChange={(e) => handleSearchChange(e)}
+          prefix={<SearchOutlined />}
+          className="search-bar"
+          type="text"
+          name=""
+          id=""
+        />
+        <div className="right-content">
+          <Dropdown
+            className="user-dropdown"
+            menu={{
+              items,
+            }}
+          >
+            <a onClick={(e) => e.preventDefault()}>
+              <Space>
+                {userName}
+                <DownOutlined />
+              </Space>
+            </a>
+          </Dropdown>
           <Button
             style={{
               backgroundColor: "gray",
