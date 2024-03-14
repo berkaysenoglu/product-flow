@@ -100,7 +100,7 @@ const ProductLayout = () => {
               <Menu
                 icon={<UnorderedListOutlined />}
                 mode="inline"
-                selectedKeys={[]}
+                selectedKeys={[selectedCategory]}
                 style={{
                   borderRight: 0,
                 }}

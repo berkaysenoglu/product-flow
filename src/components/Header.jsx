@@ -19,6 +19,7 @@ import { useNavigate } from "react-router-dom";
 import { MdLogout } from "react-icons/md";
 import { useSearchText } from "../contexts/SearchTextContext";
 export const Header = () => {
+  let typingTimer;
   const { setSearchText } = useSearchText();
   const { userName, setLoggedIn } = useLoggedInContext();
   const { i18n, t } = useTranslation();
@@ -36,7 +37,10 @@ export const Header = () => {
     },
   ];
   const handleSearchChange = (e) => {
-    setSearchText(e.target.value.toLowerCase());
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(() => {
+      setSearchText(e.target.value.toLowerCase());
+    }, 550);
   };
   return (
     <ConfigProvider
@@ -76,13 +80,7 @@ export const Header = () => {
             </a>
           </Dropdown>
           <Button
-            style={{
-              backgroundColor: "gray",
-              width: "60px",
-              height: "40px",
-              marginRight: "10px",
-              padding: "0",
-            }}
+            className="translation-button"
             onClick={() => {
               if (i18n.language === "en") {
                 i18n.changeLanguage("tr");
@@ -95,13 +93,13 @@ export const Header = () => {
               <img
                 src="https://www.countryflags.com/wp-content/uploads/turkey-flag-png-large.png"
                 alt="English Flag"
-                style={{ width: "100%", height: "100%" }}
+                style={{ width: "100%" }}
               />
             ) : (
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png"
                 alt="Turkish Flag"
-                style={{ width: "100%", height: "100%" }}
+                style={{ width: "100%" }}
               />
             )}
           </Button>

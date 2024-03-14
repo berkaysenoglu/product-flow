@@ -144,14 +144,18 @@ justify-content:space-evenly;
     }
     .right-content{
       display: flex;
-      align-items: "center" ;
-      
-    }
+      align-items:center ;
+      .translation-button{
+              width: 50px;
+              height: 35px;
+              margin-right: 10px;
+              padding: 0;
+      }
+            }
 
     .search-bar {
       border-radius: 30px;
-      margin-right: 750px ;
-      width: 300px;
+      width: 1100px;
       height: 35px;
     }
 }
@@ -245,6 +249,7 @@ justify-content:space-evenly;
   font-size: 18px;
   padding-top: 10px;
   margin-bottom: 40px;
+ 
       }
   }
   .product-edit{

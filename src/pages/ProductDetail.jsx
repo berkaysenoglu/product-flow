@@ -100,7 +100,7 @@ export const ProductDetail = () => {
             <label>{t("product-price")}</label>
             <Input
               className="input-price"
-              type="text"
+              type="number"
               name="price"
               value={editedProduct.price}
               onBlur={handlePriceOnBlur}
