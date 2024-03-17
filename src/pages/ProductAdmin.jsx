@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Header } from "../components/Header";
 import { useParams, useNavigate } from "react-router-dom";
-import ProductsData from "../products.json"; // veri tabanım
 import { InboxOutlined } from "@ant-design/icons";
 import { Form, Upload, Button, Input, Select, Space } from "antd";
 import { Card } from "antd";
@@ -16,19 +15,19 @@ const ProductAdmin = () => {
   const navigate = useNavigate();
   const { loggedIn, isAdmin } = useLoggedInContext();
   useEffect(() => {
-    if (loggedIn == false) {
+    if (loggedIn === false) {
       navigate("/login");
     }
   }, [loggedIn]);
   useEffect(() => {
-    if (isAdmin == false) {
+    if (isAdmin === false) {
       navigate("/");
     }
   }, [isAdmin]);
 
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const layout = {
     labelCol: { span: 8 },
     wrapperCol: { span: 16 },

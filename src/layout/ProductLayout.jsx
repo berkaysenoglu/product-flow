@@ -3,7 +3,6 @@ import { Button } from "antd";
 import { Breadcrumb, Layout, Menu, theme } from "antd";
 import ProductCard from "../components/ProductCard";
 import { Header } from "../components/Header";
-import productsData from "../products.json"; //veritabanım
 import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
 import { PoweroffOutlined, UnorderedListOutlined } from "@ant-design/icons";

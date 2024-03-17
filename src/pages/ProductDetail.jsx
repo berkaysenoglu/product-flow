@@ -8,7 +8,6 @@ import { useLoggedInContext } from "../contexts/LoggedInContext";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { Button, Input } from "antd";
-import { RiEdit2Fill } from "react-icons/ri";
 import { EditOutlined } from "@ant-design/icons";
 import { updateProduct } from "../ProductReducer";
 export const ProductDetail = () => {
