@@ -52,11 +52,7 @@ div{
     height:100%;
   }
   
-  .header-logo-img{
-    .img{
-        width: 75px;
-    }
-  }
+  
 
   .login-wrapper{
 
@@ -138,6 +134,30 @@ justify-content:space-evenly;
     justify-content:space-between;
     padding: 0 20px;
  
+    .user-dropdown{
+      margin-right: 19px;
+      color: rgb(232, 236, 241);
+
+    }
+    .user-dropdown:hover{
+      color : rgb(151, 155, 156)
+    }
+    .right-content{
+      display: flex;
+      align-items:center ;
+      .translation-button{
+              width: 50px;
+              height: 35px;
+              margin-right: 10px;
+              padding: 0;
+      }
+            }
+
+    .search-bar {
+      border-radius: 30px;
+      width: 1100px;
+      height: 35px;
+    }
 }
 
 .email-input{
@@ -147,6 +167,7 @@ justify-content:space-evenly;
 .login-image{
    width: 33%;
    margin-top: 1.2rem;
+   border-radius: 30px;
 }
 .password-input{
    width: 15rem;
@@ -228,6 +249,7 @@ justify-content:space-evenly;
   font-size: 18px;
   padding-top: 10px;
   margin-bottom: 40px;
+ 
       }
   }
   .product-edit{

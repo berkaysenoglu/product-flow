@@ -1,16 +1,51 @@
 import React from "react";
+import userData from "../users.json";
+import { SearchOutlined } from "@ant-design/icons";
+import {
+  Layout,
+  ConfigProvider,
+  Switch,
+  theme,
+  Button,
+  Dropdown,
+  Space,
+  Input,
+} from "antd";
 
-import { Layout, ConfigProvider, Switch, theme, Button } from "antd";
-import { TranslationOutlined } from "@ant-design/icons";
+import { TranslationOutlined, DownOutlined } from "@ant-design/icons";
+import { useLoggedInContext } from "../contexts/LoggedInContext";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { MdLogout } from "react-icons/md";
+import { useSearchText } from "../contexts/SearchTextContext";
 export const Header = () => {
-  const { i18n } = useTranslation();
+  let typingTimer;
+  const { setSearchText } = useSearchText();
+  const { userName, setLoggedIn } = useLoggedInContext();
+  const { i18n, t } = useTranslation();
   const navigate = useNavigate();
+  const handleLogOutFunc = () => {
+    setLoggedIn(false);
+    sessionStorage.setItem("loggedIn", "false");
+  };
+  const items = [
+    {
+      key: "1",
+      label: <a onClick={handleLogOutFunc}>{t("logOut")}</a>,
+      icon: <MdLogout />,
+      danger: true,
+    },
+  ];
+  const handleSearchChange = (e) => {
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(() => {
+      setSearchText(e.target.value.toLowerCase());
+    }, 550);
+  };
   return (
     <ConfigProvider
       theme={{
-        algorithm: [theme.darkAlgorithm, theme.compactAlgorithm],
+        algorithm: [theme.defaultAlgorithm],
       }}
     >
       <Layout.Header className="main-header">
@@ -22,15 +57,30 @@ export const Header = () => {
             alt="Logo"
           ></img>
         </div>
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <Button
-            style={{
-              backgroundColor: "gray",
-              width: "60px",
-              height: "40px",
-              marginRight: "10px",
-              padding: "0",
+        <Input
+          onChange={(e) => handleSearchChange(e)}
+          prefix={<SearchOutlined />}
+          className="search-bar"
+          type="text"
+          name=""
+          id=""
+        />
+        <div className="right-content">
+          <Dropdown
+            className="user-dropdown"
+            menu={{
+              items,
             }}
+          >
+            <a onClick={(e) => e.preventDefault()}>
+              <Space>
+                {userName}
+                <DownOutlined />
+              </Space>
+            </a>
+          </Dropdown>
+          <Button
+            className="translation-button"
             onClick={() => {
               if (i18n.language === "en") {
                 i18n.changeLanguage("tr");
@@ -43,13 +93,13 @@ export const Header = () => {
               <img
                 src="https://www.countryflags.com/wp-content/uploads/turkey-flag-png-large.png"
                 alt="English Flag"
-                style={{ width: "100%", height: "100%" }}
+                style={{ width: "100%" }}
               />
             ) : (
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png"
                 alt="Turkish Flag"
-                style={{ width: "100%", height: "100%" }}
+                style={{ width: "100%" }}
               />
             )}
           </Button>

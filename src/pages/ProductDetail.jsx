@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Header } from "../components/Header";
-import ProductCard from "../components/ProductCard";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
@@ -101,7 +100,7 @@ export const ProductDetail = () => {
             <label>{t("product-price")}</label>
             <Input
               className="input-price"
-              type="text"
+              type="number"
               name="price"
               value={editedProduct.price}
               onBlur={handlePriceOnBlur}

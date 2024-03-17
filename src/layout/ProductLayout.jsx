@@ -5,19 +5,19 @@ import ProductCard from "../components/ProductCard";
 import { Header } from "../components/Header";
 import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
-import { PoweroffOutlined, UnorderedListOutlined } from "@ant-design/icons";
+import { UnorderedListOutlined } from "@ant-design/icons";
 import { useLoggedInContext } from "../contexts/LoggedInContext";
 import { ConfigProvider } from "antd";
 import { useSelector } from "react-redux";
 import { FaLaptop, FaTshirt, FaChair, FaNecklace } from "react-icons/fa";
 import { MdOutlineWatch } from "react-icons/md";
+import { useSearchText } from "../contexts/SearchTextContext";
 
 const { Content, Sider } = Layout;
 
 const ProductLayout = () => {
-  const { setLoggedIn } = useLoggedInContext();
   const { t } = useTranslation();
-
+  const { searchText } = useSearchText();
   const categories = [
     { key: "Electronic", icon: <FaLaptop /> },
     { key: "Clothes", icon: <FaTshirt /> },
@@ -38,7 +38,7 @@ const ProductLayout = () => {
   ];
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  console.log(selectedCategory);
+
   const handleCategorySelect = (item) => {
     setSelectedCategory(item.key);
   };
@@ -47,15 +47,27 @@ const ProductLayout = () => {
   };
   const products = useSelector((state) => state.products);
   useEffect(() => {
-    if (selectedCategory) {
-      const newFilteredProducts = products.filter(
+    if (selectedCategory && searchText) {
+      const filtered = products.filter(
+        (product) =>
+          product.category === selectedCategory &&
+          product.name.toLowerCase().includes(searchText.toLowerCase())
+      );
+      setFilteredProducts(filtered);
+    } else if (searchText) {
+      const filtered = products.filter((product) =>
+        product.name.toLowerCase().includes(searchText.toLowerCase())
+      );
+      setFilteredProducts(filtered);
+    } else if (selectedCategory) {
+      const filtered = products.filter(
         (product) => product.category === selectedCategory
       );
-      setFilteredProducts(newFilteredProducts);
+      setFilteredProducts(filtered);
     } else {
       setFilteredProducts(products);
     }
-  }, [selectedCategory]);
+  }, [selectedCategory, searchText, products]);
 
   // const filteredProducts = selectedCategory
   //   ? productsData.products.filter(
@@ -66,10 +78,7 @@ const ProductLayout = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
-  const handleLogOutFunc = () => {
-    setLoggedIn(false);
-    sessionStorage.setItem("loggedIn", "false");
-  };
+
   return (
     <ConfigProvider theme={{ algorithm: [theme.defaultAlgorithm] }}>
       <Layout>
@@ -91,6 +100,7 @@ const ProductLayout = () => {
               <Menu
                 icon={<UnorderedListOutlined />}
                 mode="inline"
+                selectedKeys={[selectedCategory]}
                 style={{
                   borderRight: 0,
                 }}
@@ -101,20 +111,6 @@ const ProductLayout = () => {
                   )
                 }
               />
-
-              <Button
-                type="primary"
-                style={{
-                  marginTop: "75rem",
-                  width: "60%",
-                  position: "absolute",
-                }}
-                danger
-                icon={<PoweroffOutlined />}
-                onClick={handleLogOutFunc}
-              >
-                {t("Çıkış yap")}
-              </Button>
             </div>
           </Sider>
           <Layout className="main-layout">
