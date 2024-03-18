@@ -80,6 +80,7 @@ export const Header = () => {
             </a>
           </Dropdown>
           <Button
+            type="linked"
             className="translation-button"
             onClick={() => {
               if (i18n.language === "en") {
@@ -91,15 +92,15 @@ export const Header = () => {
           >
             {i18n.language === "tr" ? (
               <img
+                className="flag-image"
                 src="https://www.countryflags.com/wp-content/uploads/turkey-flag-png-large.png"
                 alt="English Flag"
-                style={{ width: "100%" }}
               />
             ) : (
               <img
+                className="flag-image"
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png"
                 alt="Turkish Flag"
-                style={{ width: "100%" }}
               />
             )}
           </Button>
