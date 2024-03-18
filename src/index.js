@@ -7,11 +7,11 @@ import "./i18n";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import ProductReducer from "./ProductReducer";
-import { CartReducer } from "./CartReducer";
+import CartReducer from "./CartReducer";
 const store = configureStore({
   reducer: {
     products: ProductReducer,
-    cart : CartReducer,
+    cart: CartReducer,
   },
 });
 

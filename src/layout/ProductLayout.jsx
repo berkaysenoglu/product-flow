@@ -9,7 +9,7 @@ import { UnorderedListOutlined } from "@ant-design/icons";
 import { useLoggedInContext } from "../contexts/LoggedInContext";
 import { ConfigProvider } from "antd";
 import { useSelector } from "react-redux";
-import { FaLaptop, FaTshirt, FaChair, FaNecklace } from "react-icons/fa";
+import { FaLaptop, FaTshirt, FaChair } from "react-icons/fa";
 import { MdOutlineWatch } from "react-icons/md";
 import { useSearchText } from "../contexts/SearchTextContext";
 

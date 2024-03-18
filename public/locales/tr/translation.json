@@ -14,5 +14,7 @@
     "edit" : "Düzenle",
     "exit-edit" : "Düzenlemeyi Bitir",
     "product-description" : "Product Description",
-    "logOut" : "Çıkış yap"
+    "logOut" : "Çıkış yap",
+    "add-to-cart":"Sepete ekle"
+
 }
