@@ -1,6 +1,7 @@
 import "./App.css";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import { ShoppingCart } from "./pages/ShoppingCart";
 import { Routes, Route } from "react-router-dom";
 import { LoggedInProvider } from "./contexts/LoggedInContext";
 
@@ -17,6 +18,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<Home />} />
             <Route path="/:productId" element={<ProductDetail />} />
+            <Route path="/sepet" element={<ShoppingCart />} />
           </Routes>
         </SearchTextProvider>
       </LoggedInProvider>

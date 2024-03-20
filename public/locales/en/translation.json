@@ -22,7 +22,12 @@
     "edit" : "Edit",
     "exit-edit":"End Editing",
     "logOut" : "Log out",
-    "add-to-cart":"Add to cart"
+    "add-to-cart":"Add to cart",
+    "quantity":"Quantity",
+    "cart-total" : "Total cart amount",
+    "total-quantity" : "Total product quantity",
+    "complete-shopping": "Complete Shopping",
+    "clear-cart":"Clear Cart"
 
 
     

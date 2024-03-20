@@ -15,6 +15,11 @@
     "exit-edit" : "Düzenlemeyi Bitir",
     "product-description" : "Product Description",
     "logOut" : "Çıkış yap",
-    "add-to-cart":"Sepete ekle"
+    "add-to-cart":"Sepete ekle",
+    "quantity" : "Adet",
+    "cart-total" :"Toplam sepet tutarı",
+    "total-quantity" : "Toplam ürün miktarı ",
+    "complete-shopping" : "Alışverişi Tamamla",
+    "clear-cart" : "Sepeti Temizle"
 
 }

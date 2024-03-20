@@ -145,6 +145,7 @@ justify-content:space-evenly;
     .right-content{
       display: flex;
       align-items:center ;
+      justify-content: center;
       .translation-button{
               width: 50px;
               height: 35px;
@@ -156,12 +157,23 @@ justify-content:space-evenly;
                 height: 100%;
                 width: 100%;
               }
+
+      }
+      .cart-icon{
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       margin-right: 20px;
+       margin-top:3px;
+       color:white;
+      font-weight: bold  ;
+      cursor: pointer;
       }
             }
             
     .search-bar {
       border-radius: 30px;
-      width: 1100px;
+      width: 1350px;
       height: 35px;
     }
 }
@@ -316,4 +328,84 @@ justify-content:space-evenly;
 }
 .add-to-cart-button{
   margin-top: 10px;
+}
+
+.cart-content{
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+.cart-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  .cart-item-wrapper{
+
+    display: flex;
+    align-items:center;
+    border-radius: 15px;
+    justify-content: space-evenly;
+    width: 110%;
+    height: 180px;
+    box-shadow: 2px 2px 5px 1px rgba(0, 64, 128, 0.1), -2px -2px 5px 1px rgba(0, 64, 128, 0.1);
+    margin: 10px;
+    padding-right:15px;
+    padding-left: 15px;
+    
+    .quantity-wrapper{
+      display: flex;
+      align-items: center;
+      margin-left:-120px;
+      margin-right: 20px;
+    }
+
+    h4{
+      margin-right: 50px;
+    }
+    p{
+      margin-right: 20px;
+      width: 90px;
+    }
+    img{
+      object-fit: contain;
+      margin-left: -190px;
+    }
+    .input-quantity{
+     
+      width: 45px;
+      padding-left: 15px;
+     }
+
+     a{
+      cursor: pointer;
+      border-radius: 10px;
+     }
+     a:hover{
+      background-color: rgb(223, 223, 235);
+     }
+   
+  }
+  
+}
+.cart-right-content{
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 20%;
+  justify-content:space-around;
+  flex-direction: column;
+  margin-top: 75px;
+  box-shadow: 2px 2px 5px 1px rgba(0, 64, 128, 0.1), -2px -2px 5px 1px rgba(0, 64, 128, 0.1);
+  border-radius: 20px;
+  height: 400px;
+  width: 300px;
+  h3{
+    font: bold;
+    font-family:sans-serif;
+    margin-left:6px;
+  }
+  Button{
+    margin: 5px;
+  }
+}
 }

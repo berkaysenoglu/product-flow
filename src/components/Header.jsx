@@ -1,6 +1,7 @@
 import React from "react";
 import userData from "../users.json";
 import { SearchOutlined } from "@ant-design/icons";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import {
   Layout,
   ConfigProvider,
@@ -18,8 +19,11 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { MdLogout } from "react-icons/md";
 import { useSearchText } from "../contexts/SearchTextContext";
+import { useSelector } from "react-redux";
 export const Header = () => {
   let typingTimer;
+  const cartItems = useSelector((state) => state.cart.items);
+
   const { setSearchText } = useSearchText();
   const { userName, setLoggedIn } = useLoggedInContext();
   const { i18n, t } = useTranslation();
@@ -66,6 +70,16 @@ export const Header = () => {
           id=""
         />
         <div className="right-content">
+          <div onClick={() => navigate("/sepet")} className="cart-icon">
+            <AiOutlineShoppingCart
+              style={{
+                height: "40px",
+                width: "50px",
+                color: "#ffffff",
+              }}
+            />
+            {cartItems.length !== 0 && cartItems.length}
+          </div>
           <Dropdown
             className="user-dropdown"
             menu={{
