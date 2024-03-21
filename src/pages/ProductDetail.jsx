@@ -65,7 +65,7 @@ export const ProductDetail = () => {
   const handlePriceInputChange = (e) => {
     setEditedProduct((prevProduct) => ({
       ...prevProduct,
-      price: e.target.value,
+      price: parseFloat(e.target.value),
     }));
   };
   const exitEditButtonHandler = () => {

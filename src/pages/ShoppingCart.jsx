@@ -37,8 +37,7 @@ export const ShoppingCart = () => {
   const totalPrice = useSelector((state) => state.cart.totalPrice);
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [isEmpty, setIsEmpty] = useState(false);
-  console.log(totalPrice);
-  console.log(typeof totalPrice);
+
   useEffect(() => {
     if (balance >= totalPrice) {
       setIsBalanceEnough(true);
