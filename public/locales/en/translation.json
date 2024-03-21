@@ -27,7 +27,10 @@
     "cart-total" : "Total cart amount",
     "total-quantity" : "Total product quantity",
     "complete-shopping": "Complete Shopping",
-    "clear-cart":"Clear Cart"
+    "clear-cart":"Clear Cart",
+    "no-item-in-cart" : "There is no item in the cart",
+    "your-balance" : "Your balance"
+
 
 
     

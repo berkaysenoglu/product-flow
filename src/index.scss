@@ -252,7 +252,7 @@ justify-content:space-evenly;
   .product-info{
     display: flex;
     flex-direction: column;
-    align-items:baseline;
+    align-items:start;
     justify-content:center;
     width: 45%;
     margin-left: 100px ;
@@ -332,13 +332,16 @@ justify-content:space-evenly;
 
 .cart-content{
   display: flex;
+  
   justify-content: space-evenly;
   width: 100%;
+  
 .cart-wrapper{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  
   .cart-item-wrapper{
 
     display: flex;
@@ -398,7 +401,7 @@ justify-content:space-evenly;
   box-shadow: 2px 2px 5px 1px rgba(0, 64, 128, 0.1), -2px -2px 5px 1px rgba(0, 64, 128, 0.1);
   border-radius: 20px;
   height: 400px;
-  width: 300px;
+  width: 400px;
   h3{
     font: bold;
     font-family:sans-serif;

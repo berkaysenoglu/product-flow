@@ -5,7 +5,8 @@
             "surname" : "Şenoğlu",
             "email" : "user",
             "password" : "1234",
-            "role" : "user"
+            "role" : "user",
+            "balance" : 220
                 
         },
         {
@@ -13,7 +14,8 @@
             "surname" : "Koçhan",
             "email" : "admin",
             "password" : "1234",
-            "role" : "admin"
+            "role" : "admin",
+            "balance" : 1000
         }
     ]
 }

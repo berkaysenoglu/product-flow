@@ -20,6 +20,8 @@
     "cart-total" :"Toplam sepet tutarı",
     "total-quantity" : "Toplam ürün miktarı ",
     "complete-shopping" : "Alışverişi Tamamla",
-    "clear-cart" : "Sepeti Temizle"
+    "clear-cart" : "Sepeti Temizle",
+    "no-item-in-cart" : "Sepette ürün bulunmamaktadır",
+    "your-balance" : "Toplam bakiyeniz"
 
 }

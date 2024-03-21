@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { Button, Input } from "antd";
 import { EditOutlined } from "@ant-design/icons";
 import { updateProduct } from "../ProductReducer";
+import { addToCart } from "../CartReducer";
 export const ProductDetail = () => {
   const [isEditMode, setIsEditMode] = useState(false);
   const navigate = useNavigate();
@@ -126,6 +127,12 @@ export const ProductDetail = () => {
             </h3>
             <p>{editedProduct.description}</p>
             <p className="product-price">{editedProduct.price} $</p>
+            <Button
+              onClick={() => dispatch(addToCart(editedProduct))}
+              style={{ marginLeft: "331px" }}
+            >
+              {t("add-to-cart")}
+            </Button>
           </div>
         )}
       </div>

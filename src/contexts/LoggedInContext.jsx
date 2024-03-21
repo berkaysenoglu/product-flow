@@ -20,6 +20,9 @@ const LoggedInProvider = ({ children }) => {
   const [userName, setUserName] = useState(() => {
     return sessionStorage.getItem("userName") || "";
   });
+  const [balance, setBalance] = useState(() => {
+    return parseFloat(sessionStorage.getItem("balance")) || 0;
+  });
   const onFinish = (values) => {
     let user = usersData.users.find(
       (user) => user.email === values.email && user.password === values.password
@@ -30,7 +33,9 @@ const LoggedInProvider = ({ children }) => {
       setLoggedIn(true);
       navigate("/");
       sessionStorage.setItem("userName", user.name + " " + user.surname);
+      sessionStorage.setItem("balance", user.balance);
       setUserName(user.name + " " + user.surname);
+      setBalance(user.balance);
     } else {
       sessionStorage.setItem("loggedIn", "false");
       setLoggedIn(false);
@@ -47,7 +52,15 @@ const LoggedInProvider = ({ children }) => {
 
   return (
     <LoggedInContext.Provider
-      value={{ loggedIn, onFinish, isAdmin, setLoggedIn, userName }}
+      value={{
+        loggedIn,
+        onFinish,
+        isAdmin,
+        setLoggedIn,
+        userName,
+        balance,
+        setBalance,
+      }}
     >
       {children}
     </LoggedInContext.Provider>
