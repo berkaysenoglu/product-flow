@@ -15,9 +15,10 @@ const ProductCard = ({ filteredProducts }) => {
     messageApi.open({
       type: "success",
       content: t("Product added to cart"),
-      duration: 3,
+      duration: 1,
     });
   };
+
   const error = () => {
     messageApi.open({
       type: "error",
