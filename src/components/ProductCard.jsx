@@ -5,14 +5,23 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../CartReducer";
+import { MdDelete } from "react-icons/md";
 const { Meta } = Card;
 
 const ProductCard = ({ filteredProducts }) => {
   const [messageApi, contextHolder] = message.useMessage();
+  const [quantityCounter, setQuantityCounter] = useState(0);
   const success = () => {
     messageApi.open({
       type: "success",
-      content: "Ürün sepete eklendi!",
+      content: t("Product added to cart"),
+      duration: 3,
+    });
+  };
+  const error = () => {
+    messageApi.open({
+      type: "error",
+      content: t("stock-insufficient"),
       duration: 3,
     });
   };
@@ -24,13 +33,19 @@ const ProductCard = ({ filteredProducts }) => {
     navigate(`/${x}`);
   };
   const handleAddToCart = (product) => {
-    dispatch(addToCart(product));
+    if (quantityCounter >= product.stock) {
+      error();
+    } else {
+      dispatch(addToCart(product));
+      setQuantityCounter(quantityCounter + 1);
+      success();
+    }
   };
   return (
     <>
       {contextHolder}
       <Row gutter={[45, 45]}>
-        {filteredProducts.map((product, index) => (
+        {filteredProducts.map((product) => (
           <Col key={product.id} xs={24} sm={12} md={8} lg={7} xl={6}>
             <Card
               hoverable
@@ -42,11 +57,11 @@ const ProductCard = ({ filteredProducts }) => {
               <div className="product-price">{product.price} $</div>
 
               <Button
+                shape="round"
                 className="add-to-cart-button"
                 onClick={(e) => {
                   e.stopPropagation();
                   handleAddToCart(product);
-                  success();
                 }}
               >
                 <ShoppingCartOutlined /> {t("add-to-cart")}

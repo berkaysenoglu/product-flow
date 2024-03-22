@@ -22,6 +22,8 @@
     "complete-shopping" : "Alışverişi Tamamla",
     "clear-cart" : "Sepeti Temizle",
     "no-item-in-cart" : "Sepette ürün bulunmamaktadır",
-    "your-balance" : "Toplam bakiyeniz"
+    "your-balance" : "Toplam bakiyeniz",
+    "stock-insufficient" : "Yetersiz stok",
+    "Product added to cart": "Ürün sepete eklendi"
 
 }

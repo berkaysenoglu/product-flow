@@ -6,11 +6,19 @@ import { useTranslation } from "react-i18next";
 import { useLoggedInContext } from "../contexts/LoggedInContext";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { Button, Input } from "antd";
+import { Button, Input, message } from "antd";
 import { EditOutlined } from "@ant-design/icons";
 import { updateProduct } from "../ProductReducer";
 import { addToCart } from "../CartReducer";
 export const ProductDetail = () => {
+  const [messageApi, contextHolder] = message.useMessage();
+  const success = () => {
+    messageApi.open({
+      type: "success",
+      content: "Ürün sepete eklendi!",
+      duration: 3,
+    });
+  };
   const [isEditMode, setIsEditMode] = useState(false);
   const navigate = useNavigate();
   const { productId } = useParams();
@@ -71,9 +79,13 @@ export const ProductDetail = () => {
   const exitEditButtonHandler = () => {
     setIsEditMode(false);
   };
-
+  const handleAddToCart = (editedProduct) => {
+    dispatch(addToCart(editedProduct));
+    success();
+  };
   return (
     <>
+      {contextHolder}
       <Header></Header>
       <div className="product-wrapper">
         <div className="img-wrapper">
@@ -128,7 +140,7 @@ export const ProductDetail = () => {
             <p>{editedProduct.description}</p>
             <p className="product-price">{editedProduct.price} $</p>
             <Button
-              onClick={() => dispatch(addToCart(editedProduct))}
+              onClick={() => handleAddToCart(editedProduct)}
               style={{ marginLeft: "331px" }}
             >
               {t("add-to-cart")}

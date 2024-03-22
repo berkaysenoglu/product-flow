@@ -29,7 +29,9 @@
     "complete-shopping": "Complete Shopping",
     "clear-cart":"Clear Cart",
     "no-item-in-cart" : "There is no item in the cart",
-    "your-balance" : "Your balance"
+    "your-balance" : "Your balance",
+    "stock-insufficient": "Stock insufficient",
+    "Product added to cart" : "Product added to cart"
 
 
 
