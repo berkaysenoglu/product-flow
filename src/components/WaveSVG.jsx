@@ -3,7 +3,7 @@ import { useSpring, animated } from "react-spring";
 
 const WaveSVG = () => {
   // Y ve genişlik değerlerini animasyonla değiştirmek için useSpring hook'unu kullanın
-  const { y, width } = useSpring({
+  const { y } = useSpring({
     from: { y: 0, width: 0 },
     to: async (next) => {
       // Animasyonun başlangıç değerleri

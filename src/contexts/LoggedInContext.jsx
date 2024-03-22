@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import usersData from "../users.json";
 import { useNavigate } from "react-router-dom";
 const LoggedInContext = createContext();

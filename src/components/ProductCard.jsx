@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Card, Row, Col, Button, message } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCart } from "../CartReducer";
-import { MdDelete } from "react-icons/md";
+
 const { Meta } = Card;
 
 const ProductCard = ({ filteredProducts }) => {

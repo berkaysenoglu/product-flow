@@ -1,11 +1,10 @@
 import React from "react";
-import userData from "../users.json";
+
 import { SearchOutlined } from "@ant-design/icons";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import {
   Layout,
   ConfigProvider,
-  Switch,
   theme,
   Button,
   Dropdown,
@@ -13,7 +12,7 @@ import {
   Input,
 } from "antd";
 
-import { TranslationOutlined, DownOutlined } from "@ant-design/icons";
+import { DownOutlined } from "@ant-design/icons";
 import { useLoggedInContext } from "../contexts/LoggedInContext";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
