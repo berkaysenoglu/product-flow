@@ -2,15 +2,7 @@ import React from "react";
 import { Header } from "../components/Header";
 import { useSelector } from "react-redux";
 import { MdDelete } from "react-icons/md";
-import {
-  Card,
-  InputNumber,
-  Button,
-  Input,
-  notification,
-  message,
-  Tooltip,
-} from "antd";
+import { Button, Input, notification, message, Tooltip } from "antd";
 import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -24,8 +16,9 @@ import {
   removeAllFromCart,
 } from "../CartReducer";
 import { useLoggedInContext } from "../contexts/LoggedInContext";
-import Sider from "antd/es/layout/Sider";
+import { useNavigate } from "react-router-dom";
 export const ShoppingCart = () => {
+  const navigate = useNavigate();
   const [messageApi, messageContextHolder] = message.useMessage();
   const error = () => {
     messageApi.open({
@@ -49,7 +42,11 @@ export const ShoppingCart = () => {
   const totalPrice = useSelector((state) => state.cart.totalPrice);
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [isEmpty, setIsEmpty] = useState(false);
-
+  useEffect(() => {
+    if (loggedIn == false) {
+      navigate("/login");
+    }
+  }, [loggedIn]);
   useEffect(() => {
     if (balance >= totalPrice) {
       setIsBalanceEnough(true);
